@@ -14,35 +14,35 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/ycly2333/android_device_EEBBK_H3000S-twrp'
+        default: 'https://github.com/jiganomegsdfdf/android_device_samsung_golden'
       KERNEL_TREE_URL:
         description: 'Kernel Tree url'
         required: true
-        default: 'na'
+        default: 'https://github.com/jiganomegsdfdf/android_kernel_samsung_golden'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
-        default: 'twrp-7.1'
+        default: 'android-9.0-twrp-3.7.0'
       KERNEL_TREE_BRANCH:
         description: 'Kernel tree branch'
         required: true
-        default: 'main'
+        default: '3.4-and10binder'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
-        default: 'device/EEBBK/H3000S'
+        default: 'device/samsung/golden'
       KERNEL_PATH:
         description: 'KERNEL_PATH'
         required: true
-        default: 'kernel/EEBBK/H3000S'
+        default: 'kernel/samsung/golden'
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
-        default: 'H3000S'
+        default: 'golden'
       MAKEFILE_NAME:
         description: 'MAKEFILE_NAME'
         required: true
-        default: 'omni_H3000S'
+        default: 'omni_golden'
 
 jobs:
   build:
