@@ -154,7 +154,10 @@ jobs:
       run: |
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
-        lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && make recoveryimage -j$(nproc --all)
+        lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng
+        mka clean
+        mka recoveryimage
+
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Upload to Release
