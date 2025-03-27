@@ -150,6 +150,7 @@ jobs:
       continue-on-error: true
 
     - name: Building kernel and recovery
+      continue-on-error: true
       run: |
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
