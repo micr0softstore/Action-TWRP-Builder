@@ -17,7 +17,7 @@ on:
         default: 'https://github.com/jiganomegsdfdf/android_device_samsung_golden'
       KERNEL_TREE_URL:
         description: 'Kernel Tree url'
-        required: true
+        required: false
         default: 'https://github.com/jiganomegsdfdf/android_kernel_samsung_golden'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
@@ -25,7 +25,7 @@ on:
         default: 'android-9.0-twrp-3.7.0'
       KERNEL_TREE_BRANCH:
         description: 'Kernel tree branch'
-        required: true
+        required: false
         default: '3.4-and10binder'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
@@ -33,7 +33,7 @@ on:
         default: 'device/samsung/golden'
       KERNEL_PATH:
         description: 'KERNEL_PATH'
-        required: true
+        required: false
         default: 'kernel/samsung/golden'
       DEVICE_NAME:
         description: 'DEVICE_NAME'
@@ -124,11 +124,6 @@ jobs:
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-    - name: Clone kernel tree
-      run: |
-        git clone ${{ github.event.inputs.KERNEL_TREE_URL }} -b ${{ github.event.inputs.KERNEL_TREE_BRANCH }} ./${{ github.event.inputs.KERNEL_PATH }}
-      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
-
     - name: Sync Device Dependencies
       run: |
         bash ${GITHUB_WORKSPACE}/scripts/convert.sh ${{ github.event.inputs.DEVICE_PATH }}/${{ steps.buildtree.outputs.value }}.dependencies
@@ -149,7 +144,7 @@ jobs:
         # sudo ln -s /usr/bin/python3 /usr/bin/python3
       continue-on-error: true
 
-    - name: Building kernel and recovery
+    - name: Building recovery
       continue-on-error: true
       run: |
         source build/envsetup.sh
