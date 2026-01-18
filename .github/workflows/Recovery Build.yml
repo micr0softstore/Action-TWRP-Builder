@@ -152,6 +152,11 @@ jobs:
       with:
         swap-size-gb: 12
 
+    - name: Apply local patches
+      run: |
+        ./device/huawei/marie/patches/apply-patches.sh 
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+
     - name: Building recovery
       run: |
         source build/envsetup.sh
