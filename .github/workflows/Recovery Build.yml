@@ -124,11 +124,6 @@ jobs:
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
-    - name: Apply loacl patches
-      run: |
-        cd workspace
-        chmod +x ./${{ github.event.inputs.DEVICE_PATH }}/patches/apply-patches.sh 
-        sh ./${{ github.event.inputs.DEVICE_PATH }}/patches/apply-patches.sh
 
     - name: Clone common tree
       if: |
