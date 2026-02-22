@@ -122,8 +122,6 @@ jobs:
     - name: Clone device tree
       run: |
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
-        chmod +x ./${{ github.event.inputs.DEVICE_PATH }}/patches/apply-patches.sh 
-        sh ./${{ github.event.inputs.DEVICE_PATH }}/patches/apply-patches.sh
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Apply loacl patches
